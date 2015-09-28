@@ -1,0 +1,18 @@
+html,
+body
+{
+    margin: 0;
+    padding: 0;
+    background: #f6f5f3;
+    font-family: Roboto, Arial;
+    font-size: 14px;
+}
+
+.layout
+{
+  padding: 8px 32px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+}
