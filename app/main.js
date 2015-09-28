@@ -32,13 +32,9 @@ signals.forEach((signal) => {
 
 Router(controller, routes, {
     onlyHash: true
-});
+}).trigger();
 
 const root = document.body.appendChild(document.createElement('div'));
-
-const activeModuleCursor = model.tree.select(['activeModule']);
-activeModuleCursor.on('update', render);
-render();
 
 function render(){
     const activeModule = modules[activeModuleCursor.get('name')];
@@ -54,3 +50,7 @@ function render(){
         </Container>,
         root);
 }
+
+const activeModuleCursor = model.tree.select(['activeModule']);
+activeModuleCursor.on('update', render);
+render();

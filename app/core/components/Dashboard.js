@@ -8,10 +8,11 @@ class Dashboard extends React.Component {
     render() {
         const modules = Object.keys(this.props.modules);
         const renderModule = (moduleName, i) => {
+            const clickHandler = () => { this.props.signals.coreNavigatedToModule({
+                    module: moduleName === 'core'? undefined : moduleName
+                }) };
             return (
-                <li key={i} onClick={() => { this.props.signals.coreNavigatedToModule({
-                    module: moduleName === 'core'? '' : moduleName
-                }) } }>
+                <li key={i} onClick={ clickHandler }>
                     { moduleName }
                 </li>
             )

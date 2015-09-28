@@ -4,8 +4,7 @@ import setModule from './actions/setModule.js';
 export default [
     [
         'coreAppMounted',
-        setUser,
-        setModule
+        setUser
     ],
     [
         'coreNavigatedToModule',
