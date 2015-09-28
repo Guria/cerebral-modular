@@ -19,12 +19,13 @@
   "dependencies": {
     "baobab": "^2.0.0",
     "bem-cn": "^1.2.0",
-    "react": "0.14.0-rc1 ",
-    "react-dom": "0.14.0-rc1",
     "cerebral": "^0.19.4",
     "cerebral-baobab": "^0.2.4",
     "cerebral-react": "^0.2.0",
-    "cerebral-router": "^0.4.2"
+    "cerebral-router": "^0.4.2",
+    "object-assign": "^4.0.1",
+    "react": "0.14.0-rc1 ",
+    "react-dom": "0.14.0-rc1"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",

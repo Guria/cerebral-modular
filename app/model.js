@@ -3,7 +3,7 @@ import { monkey } from 'cerebral-baobab';
 export default {
     modules: {},
     activeModule: {
-        name: '',
+        name: 'core',
         ref: monkey(
             ['modules'],
             ['activeModule', 'name'],
