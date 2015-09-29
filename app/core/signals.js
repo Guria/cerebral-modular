@@ -18,5 +18,25 @@ export default [
     [
         'dashboardMounted',
         () => { console.log('dashboardMounted') }
+    ],
+    [
+        'loginNavigated',
+        () => { console.log('loginNavigated') }
+    ],
+    [
+        'logoutNavigated',
+        () => { console.log('logoutNavigated') }
+    ],
+    [
+        'signupNavigated',
+        () => { console.log('signupNavigated') }
+    ],
+    [
+        'someListNavigated',
+        () => { console.log('someListNavigated') }
+    ],
+    [
+        'someListItemNavigated',
+        ({ id }) => { console.log('someListItemNavigated: %s', id) }
     ]
 ];
