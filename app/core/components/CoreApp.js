@@ -5,7 +5,7 @@ import './CoreApp.css';
 
 @Cerebral()
 class CoreApp extends React.Component {
-    componentDidMount() {
+    componentWillMount() {
         this.props.signals.coreAppMounted();
     }
     render() {

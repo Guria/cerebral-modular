@@ -5,6 +5,9 @@ import { Decorator as Cerebral } from 'cerebral-react';
     'modules': ['modules']
 })
 class Dashboard extends React.Component {
+    componentWillMount() {
+        this.props.signals.dashboardMounted();
+    }
     render() {
         const modules = Object.keys(this.props.modules);
         const renderModule = (moduleName, i) => {
