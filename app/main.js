@@ -6,7 +6,7 @@ import { Container } from 'cerebral-react';
 import Router from 'cerebral-router';
 import CoreApp from './core/components/CoreApp.js';
 import objectAssign from 'object-assign';
-import initialState from './model.js';
+import { initialState, computedState } from './model.js';
 
 const modules = {
     core: require("./core/"),
@@ -16,15 +16,18 @@ const modules = {
 let signals = [],
     routes = {};
 
-Object.keys(modules).forEach((moduleName) => {
-    let module = modules[moduleName];
-    initialState.modules[moduleName] = module.initialState || {};
+Object.keys(modules).forEach((name) => {
+    let module = modules[name];
+    initialState.modules[name] = objectAssign({ name }, module.initialState);
+    computedState.modules[name] = module.computedState;
     signals = signals.concat(module.signals || []);
     objectAssign(routes, module.routes);
 });
 
 let model = Model(initialState);
 let controller = Controller(model);
+
+controller.compute(computedState);
 
 signals.forEach((signal) => {
     controller.signal(...signal);
@@ -37,7 +40,7 @@ Router(controller, routes, {
 const root = document.body.appendChild(document.createElement('div'));
 
 function render(){
-    const activeModule = modules[activeModuleCursor.get('name')];
+    const activeModule = modules[activeModuleCursor.get()];
     const rootComponent = activeModule.rootComponent?
         React.createElement(activeModule.rootComponent) :
         <div />;

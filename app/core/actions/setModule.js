@@ -1,5 +1,5 @@
 function setModule({ module = 'core' }, state) {
-    state.set(['activeModule', 'name'], module);
+    state.set(['activeModule'], module);
 }
 
 export default setModule;

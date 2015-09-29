@@ -1,15 +1,11 @@
-import { monkey } from 'cerebral-baobab';
-
-export default {
+export const initialState = {
     modules: {},
-    activeModule: {
-        name: 'core',
-        ref: monkey(
-            ['modules'],
-            ['activeModule', 'name'],
-            (modules, activeModule) => { 
-                return modules[activeModule] || {}
-            }
-        )
+    activeModule: 'core'
+};
+
+export const computedState = {
+    modules: {},
+    activeModule: function (get, moduleName) {
+        return get(['modules', moduleName]);
     }
 }
