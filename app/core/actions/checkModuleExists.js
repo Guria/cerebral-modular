@@ -1,4 +1,4 @@
-function checkModuleExists({ module = 'core'}, state, output) {
+function checkModuleExists({ module }, state, output) {
     
     if (Object.keys(state.get(['modules'])).indexOf(module) >= 0) {
         output.success()

@@ -6,37 +6,41 @@ import { redirect } from 'cerebral-router';
 export default [
     [
         'coreAppMounted',
-        setUser
+        [ setUser ]
     ],
     [
         'coreNavigatedToModule',
-        checkModuleExists, {
+        [ checkModuleExists, {
             success: [setModule],
             error: [redirect('/')]
-        }
+        } ]
+    ],
+    [
+        'coreNavigatedHome',
+        [ setModule ]
     ],
     [
         'dashboardMounted',
-        () => { console.log('dashboardMounted') }
+        [ () => { console.log('dashboardMounted') } ]
     ],
     [
         'loginNavigated',
-        () => { console.log('loginNavigated') }
+        [ () => { console.log('loginNavigated') } ]
     ],
     [
         'logoutNavigated',
-        () => { console.log('logoutNavigated') }
+        [ () => { console.log('logoutNavigated') } ]
     ],
     [
         'signupNavigated',
-        () => { console.log('signupNavigated') }
+        [ () => { console.log('signupNavigated') } ]
     ],
     [
         'someListNavigated',
-        () => { console.log('someListNavigated') }
+        [ () => { console.log('someListNavigated') } ]
     ],
     [
         'someListItemNavigated',
-        ({ id }) => { console.log('someListItemNavigated: %s', id) }
+        [ ({ id }) => { console.log('someListItemNavigated: %s', id) } ]
     ]
 ];

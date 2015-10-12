@@ -7,6 +7,6 @@ export const routes = {
     '/signup': 'signupNavigated',
     '/someList': 'someListNavigated',
     '/someList/:id': 'someListItemNavigated',
-    '/': 'coreNavigatedToModule',
+    '/': 'coreNavigatedHome',
     '/:module': 'coreNavigatedToModule'
 };
