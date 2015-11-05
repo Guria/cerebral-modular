@@ -19,15 +19,13 @@ let signals = [],
 Object.keys(modules).forEach((name) => {
     let module = modules[name];
     initialState.modules[name] = objectAssign({ name }, module.initialState);
-    computedState.modules[name] = module.computedState;
+    module.computedState && (computedState.modules[name] = module.computedState);
     signals = signals.concat(module.signals || []);
     objectAssign(routes, module.routes);
 });
 
 let model = Model(initialState);
-let controller = Controller(model);
-
-controller.compute(computedState);
+let controller = Controller(model, {}, computedState);
 
 signals.forEach((signal) => {
     controller.signal(...signal);

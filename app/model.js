@@ -5,7 +5,7 @@ export const initialState = {
 
 export const computedState = {
     modules: {},
-    activeModule: function (get, moduleName) {
-        return get(['modules', moduleName]);
+    activeModule: function (get) {
+        return get(['modules', get(['activeModule'])]);
     }
 }

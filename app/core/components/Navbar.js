@@ -1,6 +1,6 @@
 import React from 'react';
 import {bem} from './../utils.js';
-import {Decorator as Cerebral} from 'cerebral-react';
+import {Decorator as Cerebral, Link} from 'cerebral-react';
 
 import './Navbar.css';
 
@@ -15,7 +15,7 @@ class Navbar extends React.Component {
         return <div className={b()}>
             <div className={b('placeholder')}>
                 <div className={b('panel')}>
-                    <a href="/#/" className={b('logo')}><span>{ this.props.title || 'Cerebral Modular' }</span></a>
+                    <Link signal={this.props.signals.coreNavigatedHome} className={b('logo')}><span>{ this.props.title || 'Cerebral Modular' }</span></Link>
                     <span className={b('controls').mix('user')}>
                         { this.props.user.FullName || 'Loading...' }
                     </span>
