@@ -33,25 +33,13 @@ signals.forEach((signal) => {
 
 Router(controller, routes, {
     onlyHash: true
-}).trigger();
+});
 
 const root = document.body.appendChild(document.createElement('div'));
 
-function render(){
-    const activeModule = modules[activeModuleCursor.get()];
-    const rootComponent = activeModule.rootComponent?
-        React.createElement(activeModule.rootComponent) :
-        <div />;
+ReactDOM.render(
+    <Container controller={ controller }>
+        <CoreApp modules={ modules } />
+    </Container>,
+    root);
 
-    ReactDOM.render(
-        <Container controller={ controller }>
-            <CoreApp>
-                { rootComponent }
-            </CoreApp>
-        </Container>,
-        root);
-}
-
-const activeModuleCursor = model.tree.select(['activeModule']);
-activeModuleCursor.on('update', render);
-render();

@@ -6,7 +6,12 @@ import { redirect } from 'cerebral-router';
 export default [
     [
         'coreAppMounted',
-        [ setUser ]
+        [ 
+            setUser,
+            function (input, state, output, services) {
+                services.router.trigger();
+            }
+        ]
     ],
     [
         'coreNavigatedToModule',
